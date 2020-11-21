@@ -18,7 +18,7 @@ namespace Controllers
             for (var i = 0; i < count; ++i)
             {
                 Instantiate(prefab, viewParent).GetComponent<BotsView>().Initialize(botsCollection.GetByIndex(i));
-                prefab.transform.position = new Vector3(-55, 1, -20 + i * 4.5F);
+                prefab.transform.position = new Vector3(-55, 1, -30 + i * 6);
             }
         }
     }
