@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5889932118749217642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5889932118749217640}
+  - component: {fileID: 5889932118749217643}
+  m_Layer: 0
+  m_Name: BotsCollection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5889932118749217640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889932118749217642}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5889932118749217643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889932118749217642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfb07118cc67493d9c832e5e3d2a93b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bots:
+  - {fileID: 11400000, guid: 822f63837b08e450aaafa0d9d3bc4ab7, type: 2}
+  - {fileID: 11400000, guid: 81287836497874665a9213c1be9704d8, type: 2}
+  - {fileID: 11400000, guid: df9e9e0f89afb4cb5a49bf664a14d713, type: 2}
+  - {fileID: 11400000, guid: 876ffbad724fc4fa0ab1b8177454ce2d, type: 2}
+  - {fileID: 11400000, guid: 30f894d565a344df69f39bcc9cd1544e, type: 2}
+  - {fileID: 11400000, guid: 1a965e689ee904afd936d6366f466acc, type: 2}
+  - {fileID: 11400000, guid: f8810ff036c884f1eaec36dc6c6e48d8, type: 2}
+  - {fileID: 11400000, guid: dcea10a3836704a60bb8ea0657ad2c09, type: 2}
+  - {fileID: 11400000, guid: 5135dadfcface48c09e97067dbd5ffed, type: 2}
+  - {fileID: 11400000, guid: dd64064676bfc4e1bb3730243b5b00e5, type: 2}
+  trajectories: {fileID: 2217550884715172888, guid: 589e6b0503bda4181b2c0ed4631d5844,
+    type: 3}
