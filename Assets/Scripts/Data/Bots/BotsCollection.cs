@@ -9,11 +9,16 @@ namespace Data.Bots
         [SerializeField] private List<BotData> bots;
         [SerializeField] private TrajectoriesCollection trajectories;
 
-        public IList<BotData> Bots => bots;
+        public float Count => bots.Count;
 
         private void Start()
         {
-            foreach (var bot in bots) bot.Trajectory = trajectories.SelectRandom();
+            foreach (var bot in bots) bot.Initialize(trajectories.SelectRandom());
+        }
+
+        public BotData GetByIndex(int index)
+        {
+            return bots[index];
         }
     }
 }

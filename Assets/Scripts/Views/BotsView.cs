@@ -1,5 +1,4 @@
-﻿using System;
-using Data.Bots;
+﻿using Data.Bots;
 using UnityEngine;
 
 namespace Views
@@ -11,23 +10,27 @@ namespace Views
 
         private void Update()
         {
-            // Move();
+            CompletedMove();
         }
-        
+
         public void Initialize(BotData bot)
         {
             _bot = bot;
         }
-        
-        // Helpers.
-        
-        private void Move()
-        {
-            var currentPosition = prefab.transform.position;
 
-            transform.position = Vector3.MoveTowards(currentPosition,
-                _bot.NextOrLastDistance(currentPosition),
-                _bot.Speed * Time.deltaTime);
+        // Helpers.
+
+        private void CompletedMove()
+        {
+            var currentInScene = prefab.transform.position;
+            var currentOrNext = _bot.CurrentOrNext(currentInScene);
+            if (currentOrNext == currentInScene)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            transform.position = Vector3.MoveTowards(currentInScene, currentOrNext, _bot.Speed * Time.deltaTime);
         }
     }
 }

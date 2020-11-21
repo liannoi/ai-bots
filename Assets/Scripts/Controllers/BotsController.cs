@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Data.Bots;
+﻿using Data.Bots;
 using JetBrains.Annotations;
 using UnityEngine;
 using Views;
@@ -14,12 +13,12 @@ namespace Controllers
 
         private void Start()
         {
-            var count = botsCollection.Bots.Count;
+            var count = botsCollection.Count;
 
             for (var i = 0; i < count; ++i)
             {
-                Instantiate(prefab, viewParent).GetComponent<BotsView>().Initialize(botsCollection.Bots[i]);
-                prefab.transform.position = new Vector3(-20.0F, 1.03F, -20.0F + i * 4.5F);
+                Instantiate(prefab, viewParent).GetComponent<BotsView>().Initialize(botsCollection.GetByIndex(i));
+                prefab.transform.position = new Vector3(-55, 1, -20 + i * 4.5F);
             }
         }
     }

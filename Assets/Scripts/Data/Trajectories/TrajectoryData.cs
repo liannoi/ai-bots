@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using UnityEngine;
 
 namespace Data.Trajectories
@@ -7,16 +7,44 @@ namespace Data.Trajectories
     [CreateAssetMenu]
     public class TrajectoryData : ScriptableObject
     {
-        [SerializeField] private List<Vector3> directions;
+        [SerializeField] private List<Vector3> distances;
+        private int _index;
 
-        public List<Vector3> Directions => directions;
-
-        public override string ToString()
+        private int Index
         {
-            var stringBuilder = new StringBuilder();
-            directions.ForEach(e => stringBuilder.Append($"({e.x}, {e.y}, {e.z})"));
+            get
+            {
+                if (_index + 1 > distances.Count) _index = 0;
 
-            return stringBuilder.ToString();
+                return _index;
+            }
+            set => _index = value;
+        }
+
+        private Vector3 Last => distances.Last();
+        private Vector3 Current => distances[Index];
+        private Vector3 Next => distances[Index++];
+
+        public Vector3 CurrentOrNext(Vector3 currentInScene)
+        {
+            return !IsCompleted(currentInScene) ? InPosition(currentInScene) ? Next : Current : currentInScene;
+        }
+
+        // Helpers.
+
+        private bool IsCompleted(Vector3 currentInScene)
+        {
+            return Distance(Last, currentInScene);
+        }
+
+        private bool InPosition(Vector3 currentInScene)
+        {
+            return Distance(Current, currentInScene);
+        }
+
+        private bool Distance(Vector3 currentByIndex, Vector3 currentInScene)
+        {
+            return Vector3.Distance(currentByIndex, currentInScene) == 0;
         }
     }
 }
